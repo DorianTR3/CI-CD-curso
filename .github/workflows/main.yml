@@ -1,21 +1,20 @@
-name: Mi primer github action
+name: pipeline para revisar archivos
 
 on:
-push:
-branches: ["main"]
+  push:
+    branches: ["main"]
 
 jobs:
-build:
-runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del codigo
+        uses: actions/checkout@v4
 
-steps:
-  - name: Checkout del codigo
-    uses: actions/checkout@v4
+      - name: Usar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-  - name: Usar Node.js
-    uses: actions/setup-node@v4
-    with:
-      node-version: '20'
-
-  - name: Construir app con node
-    run: npm install
+      - name: Construir app con node
+        run: npm install
