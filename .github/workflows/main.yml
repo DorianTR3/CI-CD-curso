@@ -24,7 +24,7 @@ jobs:
           if [ ! -f "$GITHUB_WORKSPACE/app.js" ]; then
             echo "app.js no existe en la raiz"
             exit 1
-          else
-            echo "app.js existe"
           fi
+            echo "app.js existe"
+          
 
